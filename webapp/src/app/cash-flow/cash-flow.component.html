@@ -1,0 +1,61 @@
+<p>
+  <mat-toolbar>
+    <span>Lançamentos</span>
+  </mat-toolbar>
+</p>
+<div class="container">
+  <div style="margin-bottom: 10px">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="openNewIemDialog()"
+      style="margin-right: 15px"
+    >
+      Adicionar Item
+    </button>
+
+    <button mat-raised-button color="primary" (click)="openNewIemDialog()">
+      Extrato Consolidado Diário
+    </button>
+  </div>
+  <div>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="value">
+        <mat-header-cell *matHeaderCellDef> Valor </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.value }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef> Tipo </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.type }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef> Data </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.date | date : "dd/MM/yy h:mm:ss" }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="delete"
+            (click)="remove(element.id)"
+          ></mat-icon>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </div>
+</div>
