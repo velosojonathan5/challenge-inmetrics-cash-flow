@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Relatório diário consolidado</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Data</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="date" />
+    <mat-hint>DD/MM/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Fechar</button>
+  <button mat-button cdkFocusInitial (click)="confirm()">
+    Gerar Relatório
+  </button>
+</div>

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CashFlowService } from './cash-flow.service';
+import { CashFlowService } from '../cash-flow.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CashFlowAddDialogComponent } from '../cash-flow-add-dialog/cash-flow-add-dialog.component';
 import { CashFlow } from './cash-flow.entity';
+import { CashFlowExtractDialogComponent } from '../cash-flow-extract-dialog/cash-flow-extract-dialog.component';
 
 @Component({
   selector: 'app-cash-flow',
@@ -29,10 +30,16 @@ export class CashFlowComponent implements OnInit {
     const dialogRef = this.dialog.open(CashFlowAddDialogComponent);
 
     dialogRef.afterClosed().subscribe((item: CashFlow) => {
-      this.service.create(item).subscribe(() => {
-        this.read();
-      });
+      if (item) {
+        this.service.create(item).subscribe(() => {
+          this.read();
+        });
+      }
     });
+  }
+
+  openExtractDialog(): void {
+    this.dialog.open(CashFlowExtractDialogComponent);
   }
 
   remove(id: number): void {

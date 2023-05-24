@@ -10,7 +10,4 @@ export class CreateCashFlowDto {
 
   @ApiProperty()
   description: string;
-
-  //   @ApiProperty()
-  //   date: Date;
 }

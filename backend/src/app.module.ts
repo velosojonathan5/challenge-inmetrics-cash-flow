@@ -11,7 +11,7 @@ import { CashFlowTypeorm } from './cash-flow/repositories/implementations/cash-f
     CashFlowModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: 'db',
       port: 3306,
       username: 'root',
       password: 'my-secret-pw',

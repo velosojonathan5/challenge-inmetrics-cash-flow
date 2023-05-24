@@ -17,9 +17,17 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { CashFlowExtractDialogComponent } from './cash-flow-extract-dialog/cash-flow-extract-dialog.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
-  declarations: [AppComponent, CashFlowComponent, CashFlowAddDialogComponent],
+  declarations: [
+    AppComponent,
+    CashFlowComponent,
+    CashFlowAddDialogComponent,
+    CashFlowExtractDialogComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -34,6 +42,8 @@ import { MatCardModule } from '@angular/material/card';
     MatSelectModule,
     FormsModule,
     MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
